@@ -3952,6 +3952,36 @@ static const struct panel_desc arm_rtsm = {
 	.bus_format = MEDIA_BUS_FMT_RGB888_1X24,
 };
 
+static const struct display_timing sitronix_st7262e43_timing = {
+	.pixelclock = { 23000000, 25000000, 27000000 },
+	.hactive = { 800, 800, 800 },
+	.hfront_porch = { 4, 8, 48 },
+	.hback_porch = { 4, 8, 48 },
+	.hsync_len = { 2, 4, 8 },
+	.vactive = { 480, 480, 480 },
+	.vfront_porch = { 4, 8, 12 },
+	.vback_porch = { 4, 8, 12 },
+	.vsync_len = { 2, 4, 8 },
+	.flags = DISPLAY_FLAGS_HSYNC_LOW | DISPLAY_FLAGS_VSYNC_LOW |
+		 DISPLAY_FLAGS_DE_HIGH | DISPLAY_FLAGS_PIXDATA_POSEDGE |
+		 DISPLAY_FLAGS_SYNC_POSEDGE,
+}
+
+static const struct panel_desc sitronix_st7262e43 = {
+	.timings = &multi_inno_mi0700s4t_6_timing,
+	.num_timings = 1,
+	.bpc = 8,
+	.size = {
+		.width = 154,
+		.height = 86,
+	},
+	.bus_format = MEDIA_BUS_FMT_RGB888_1X24,
+	.bus_flags = DRM_BUS_FLAG_DE_HIGH |
+		     DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE |
+		     DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE,
+	.connector_type = DRM_MODE_CONNECTOR_DPI,
+};
+
 static const struct of_device_id platform_of_match[] = {
 	{
 		.compatible = "ampire,am-1280800n3tzqw-t00h",
@@ -4346,6 +4376,9 @@ static const struct of_device_id platform_of_match[] = {
 	}, {
 		.compatible = "sitronix,st7262",
 		.data = &sitronix_st7262_lvds,
+	}, {
+		.compatible = "sitronix,st7262e43",
+		.data = &sitronix_st7262e43,
 	}, {
 		/* Must be the last entry */
 		.compatible = "panel-dpi",
