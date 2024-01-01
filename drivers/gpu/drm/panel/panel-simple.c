@@ -3965,7 +3965,7 @@ static const struct display_timing sitronix_st7262e43_timing = {
 	.flags = DISPLAY_FLAGS_HSYNC_LOW | DISPLAY_FLAGS_VSYNC_LOW |
 		 DISPLAY_FLAGS_DE_HIGH | DISPLAY_FLAGS_PIXDATA_POSEDGE |
 		 DISPLAY_FLAGS_SYNC_POSEDGE,
-}
+};
 
 static const struct panel_desc sitronix_st7262e43 = {
 	.timings = &multi_inno_mi0700s4t_6_timing,
