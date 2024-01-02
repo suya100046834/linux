@@ -231,8 +231,34 @@
 							 <PIN_PC4__LCDDISP>,
 							 <PIN_PC8__LCDDEN>,
 							 <PIN_PC7__LCDPCK>;
-					}
-				}
+					};
+					pinctrl_my_lcd_rgb888: lcd-rgb-0 {
+						pinmux = <PIN_PB11__LCDDAT0>,
+							 <PIN_PB12__LCDDAT1>,
+							 <PIN_PB13__LCDDAT2>,
+							 <PIN_PC11__LCDDAT3>,
+							 <PIN_PC12__LCDDAT4>,
+							 <PIN_PC13__LCDDAT5>,
+							 <PIN_PC14__LCDDAT6>,
+							 <PIN_PC15__LCDDAT7>,
+							 <PIN_PB19__LCDDAT8>,
+							 <PIN_PB20__LCDDAT9>,
+							 <PIN_PB21__LCDDAT10>,
+							 <PIN_PB22__LCDDAT11>,
+							 <PIN_PB23__LCDDAT12>,
+							 <PIN_PB24__LCDDAT13>,
+							 <PIN_PB25__LCDDAT14>,
+							 <PIN_PB26__LCDDAT15>,
+							 <PIN_PB27__LCDDAT16>,
+							 <PIN_PB28__LCDDAT17>,
+							 <PIN_PB29__LCDDAT18>,
+							 <PIN_PB30__LCDDAT19>,
+							 <PIN_PB31__LCDDAT20>,
+							 <PIN_PC0__LCDDAT21>,
+							 <PIN_PC1__LCDDAT22>,
+							 <PIN_PC2__LCDDAT23>;
+					};
+				};
 
 				pinctrl_can1_default: can1_default {
 					pinmux = <PIN_PC26__CANTX1>,
