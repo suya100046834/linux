@@ -62,6 +62,7 @@
 		apb {
 
 			hlcdc: hlcdc@f0000000 {
+				status = "okay";
 				hlcdc-display-controller {
 					port@0 {
 						#address-cells = <1>;
@@ -223,6 +224,15 @@
 			};
 
 			pinctrl@fc038000 {
+				lcd {
+					pinctrl_lcd_base: lcd-base-0 {
+						pinmux = <PIN_PC5__LCDVSYNC>,
+							 <PIN_PC6__LCDHSYNC>,
+							 <PIN_PC4__LCDDISP>,
+							 <PIN_PC8__LCDDEN>,
+							 <PIN_PC7__LCDPCK>;
+					}
+				}
 
 				pinctrl_can1_default: can1_default {
 					pinmux = <PIN_PC26__CANTX1>,
