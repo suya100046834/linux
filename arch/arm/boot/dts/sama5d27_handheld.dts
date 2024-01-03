@@ -27,24 +27,6 @@
 		stdout-path = "serial0:115200n8";
 	};
 
-	panel: panel {
-		compatible = "sitronix,st7262e43", "simple-panel";
-		#address-cells = <1>;
-		#size-cells = <0>;
-		status = "okay";
-
-		port@0 {
-			reg = <0>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-			
-			panel_input: endpoint@0 {
-				reg = <0>;
-				remote-endpoint = <&hlcdc_panel_output>;
-			};
-		};
-	};
-
 	ahb {
 		usb0: gadget@300000 {
 			atmel,vbus-gpio = <&pioA PIN_PB10 GPIO_ACTIVE_HIGH>;
@@ -87,6 +69,7 @@
 			};
 
 			isc: isc@f0008000 {
+				status = "disabled";
 				pinctrl-names = "default";
 				pinctrl-0 = <&pinctrl_isc_base &pinctrl_isc_data_8bit &pinctrl_isc_data_9_10 &pinctrl_isc_data_11_12>;
 			};
@@ -509,7 +492,25 @@
 			can1: can@fc050000 {
 				pinctrl-names = "default";
 				pinctrl-0 = <&pinctrl_can1_default>;
-				status = "okay";
+				status = "disabled";
+			};
+		};
+	};
+
+	panel: panel {
+		compatible = "sitronix,st7262e43", "simple-panel";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "okay";
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			
+			panel_input: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&hlcdc_panel_output>;
 			};
 		};
 	};
