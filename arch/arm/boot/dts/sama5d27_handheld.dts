@@ -37,7 +37,7 @@
 			#size-cells = <0>;
 			
 			panel_input: endpoint@0 {
-				reg <0>;
+				reg = <0>;
 				remote-endpoint = <&hlcdc_panel_output>;
 			};
 		};
@@ -74,7 +74,8 @@
 					pinctrl-names = "defauls";
 					pinctrl-0 = <&pinctrl_lcd_base &pinctrl_my_lcd_rgb888>;
 					port@0 {
-						bus-width = <24>;
+						#address-cells = <1>;
+						#size-cells = <0>;
 						hlcdc_panel_output: endpoint@0 {
 							reg = <0>;
 							remote-endpoint = <&panel_input>;
@@ -238,6 +239,8 @@
 							 <PIN_PC4__LCDDISP>,
 							 <PIN_PC8__LCDDEN>,
 							 <PIN_PC7__LCDPCK>;
+						bias-disable;
+						atmel,drive-strength = <ATMEL_PIO_DRVSTR_ME>;
 					};
 					pinctrl_my_lcd_rgb888: lcd-rgb-0 {
 						pinmux = <PIN_PB11__LCDDAT0>,
@@ -264,6 +267,7 @@
 							 <PIN_PC0__LCDDAT21>,
 							 <PIN_PC1__LCDDAT22>,
 							 <PIN_PC2__LCDDAT23>;
+						bias-disabled;
 					};
 				};
 
