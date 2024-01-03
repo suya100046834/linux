@@ -74,6 +74,7 @@
 					pinctrl-names = "defauls";
 					pinctrl-0 = <&pinctrl_lcd_base &pinctrl_my_lcd_rgb888>;
 					port@0 {
+						bus-width = <16>;
 						#address-cells = <1>;
 						#size-cells = <0>;
 						reg = <0>;
