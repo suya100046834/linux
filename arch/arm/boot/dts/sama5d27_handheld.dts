@@ -33,7 +33,7 @@
 
 		port@0 {
 			reg = <0>;
-			#address_cells = <1>;
+			#address-cells = <1>;
 			#size-cells = <0>;
 			
 			panel_input: endpoint@0 {
@@ -75,9 +75,6 @@
 					pinctrl-0 = <&pinctrl_lcd_base &pinctrl_my_lcd_rgb888>;
 					port@0 {
 						bus-width = <24>;
-						#address-cells = <1>;
-						#size-cells = <0>;
-						reg = <0>;
 						hlcdc_panel_output: endpoint@0 {
 							reg = <0>;
 							remote-endpoint = <&panel_input>;
