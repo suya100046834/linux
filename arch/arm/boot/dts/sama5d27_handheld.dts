@@ -8,6 +8,8 @@
 #include <dt-bindings/mfd/atmel-flexcom.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
+#include "sama5d2-pinfunc.h"
+#include "dt-bindings/pinctrl/at91.h"
 
 / {
 	model = "sama5d27_handheld";
