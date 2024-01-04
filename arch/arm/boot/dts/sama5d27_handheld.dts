@@ -66,6 +66,10 @@
 						};
 					};
 				};
+				hlcdc_pwm: hlcdc-pwm {
+					pinctrl-names = "default";
+					pinctrl-0 = <&pinctrl_lcd_pwm>;
+				};
 			};
 
 			isc: isc@f0008000 {
@@ -253,6 +257,10 @@
 							 <PIN_PC1__LCDDAT22>,
 							 <PIN_PC2__LCDDAT23>;
 						bias-disabled;
+					};
+					pinctrl_lcd_pwm: pinctrl_lcd_pwm {
+						pinmux = <PIN_PC3__LCDPWM>;
+						bias-disables;
 					};
 				};
 
