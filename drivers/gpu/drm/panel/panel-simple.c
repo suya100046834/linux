@@ -3952,24 +3952,22 @@ static const struct panel_desc arm_rtsm = {
 	.bus_format = MEDIA_BUS_FMT_RGB888_1X24,
 };
 
-static const struct display_timing sitronix_st7262e43_timing = {
-	.pixelclock = { 23000000, 25000000, 27000000 },
-	.hactive = { 800, 800, 800 },
-	.hfront_porch = { 4, 8, 48 },
-	.hback_porch = { 4, 8, 48 },
-	.hsync_len = { 2, 4, 8 },
-	.vactive = { 480, 480, 480 },
-	.vfront_porch = { 4, 8, 12 },
-	.vback_porch = { 4, 8, 12 },
-	.vsync_len = { 2, 4, 8 },
-	.flags = DISPLAY_FLAGS_HSYNC_LOW | DISPLAY_FLAGS_VSYNC_LOW |
-		 DISPLAY_FLAGS_DE_HIGH | DISPLAY_FLAGS_PIXDATA_POSEDGE |
-		 DISPLAY_FLAGS_SYNC_POSEDGE,
+static const struct drm_display_mode sitronix_st7262e43_mode = {
+	.clock = 25000,
+	.hdisplay = 800,
+	.hsync_start = 800 + 8,
+	.hsync_end = 800 + 8 + 4,
+	.htotal = 800 + 8 + 4 + 4,
+	.vdisplay = 480,
+	.vsync_start = 480 + 8,
+	.vsync_end = 480 + 8 + 4,
+	.vtotal = 480 + 8 + 4 + 4,
+	.flags = DRM_MODE_FLAG_NHSYNC | DRM_MODE_FLAG_NVSYNC,
 };
 
 static const struct panel_desc sitronix_st7262e43 = {
-	.timings = &multi_inno_mi0700s4t_6_timing,
-	.num_timings = 1,
+	.modes = &sitronix_st7262e43_mode,
+	.num_modes = 1,
 	.bpc = 8,
 	.size = {
 		.width = 154,
