@@ -55,7 +55,7 @@
 			hlcdc: hlcdc@f0000000 {
 				status = "okay";
 				hlcdc-display-controller {
-					pinctrl-names = "defauls";
+					pinctrl-names = "default";
 					pinctrl-0 = <&pinctrl_lcd_base &pinctrl_my_lcd_rgb888>;
 					port@0 {
 						#address-cells = <1>;
@@ -225,7 +225,6 @@
 					pinctrl_lcd_base: lcd-base-0 {
 						pinmux = <PIN_PC5__LCDVSYNC>,
 							 <PIN_PC6__LCDHSYNC>,
-							 <PIN_PC4__LCDDISP>,
 							 <PIN_PC8__LCDDEN>,
 							 <PIN_PC7__LCDPCK>;
 						bias-disable;
