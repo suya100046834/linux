@@ -56,7 +56,7 @@
 				status = "okay";
 				hlcdc-display-controller {
 					pinctrl-names = "default";
-					pinctrl-0 = <&pinctrl_lcd_base &pinctrl_my_lcd_rgb888>;
+					pinctrl-0 = <&pinctrl_lcd_base &pinctrl_lcd_rgb>;
 					port@0 {
 						#address-cells = <1>;
 						#size-cells = <0>;
@@ -222,15 +222,15 @@
 
 			pinctrl@fc038000 {
 				lcd {
-					pinctrl_lcd_base: lcd-base-0 {
+					pinctrl_lcd_base: pinctrl_lcd_base {
 						pinmux = <PIN_PC5__LCDVSYNC>,
 							 <PIN_PC6__LCDHSYNC>,
 							 <PIN_PC8__LCDDEN>,
 							 <PIN_PC7__LCDPCK>;
 						bias-disable;
 						atmel,drive-strength = <ATMEL_PIO_DRVSTR_ME>;
-					};
-					pinctrl_my_lcd_rgb888: lcd-rgb-0 {
+					}; 
+					pinctrl_lcd_rgb: pinctrl_lcd_rgb {
 						pinmux = <PIN_PB11__LCDDAT0>,
 							 <PIN_PB12__LCDDAT1>,
 							 <PIN_PB13__LCDDAT2>,
@@ -529,7 +529,7 @@
 		status = "okay";
 	};
 
-	panel {
+	panel: panel {
 		compatible = "sitronix,st7262e43", "simple-panel";
 		backlight = <&backlight>;
 		power-supply = <&panel_reg>;
