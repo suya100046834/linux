@@ -3962,7 +3962,7 @@ static const struct drm_display_mode sitronix_st7262e43_mode = {
 	.vsync_start = 480 + 8,
 	.vsync_end = 480 + 8 + 4,
 	.vtotal = 480 + 8 + 4 + 4,
-	.flags = DRM_MODE_FLAG_NHSYNC | DRM_MODE_FLAG_NVSYNC,
+	.flags = DRM_MODE_FLAG_PHSYNC | DRM_MODE_FLAG_PVSYNC,
 };
 
 static const struct panel_desc sitronix_st7262e43 = {
