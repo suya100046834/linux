@@ -51,27 +51,7 @@
 		};
 
 		apb {
-
-			hlcdc: hlcdc@f0000000 {
-				status = "okay";
-				hlcdc-display-controller {
-					pinctrl-names = "default";
-					pinctrl-0 = <&pinctrl_lcd_base &pinctrl_lcd_rgb>;
-					port@0 {
-						#address-cells = <1>;
-						#size-cells = <0>;
-						hlcdc_panel_output: endpoint@0 {
-							reg = <0>;
-							remote-endpoint = <&panel_input>;
-						};
-					};
-				};
-				hlcdc_pwm: hlcdc-pwm {
-					pinctrl-names = "default";
-					pinctrl-0 = <&pinctrl_lcd_pwm>;
-				};
-			};
-
+			
 			isc: isc@f0008000 {
 				status = "disabled";
 				pinctrl-names = "default";
@@ -530,7 +510,7 @@
 	};
 
 	panel: panel {
-		compatible = "sitronix,st7262e43", "simple-panel";
+		compatible = "sitronix,st7262e43";
 		backlight = <&backlight>;
 		power-supply = <&panel_reg>;
 		#address-cells = <1>;
@@ -623,3 +603,24 @@
 		status = "okay";
 	};
 };
+
+&hlcdc {
+	status = "okay";
+	hlcdc-display-controller {
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_lcd_base &pinctrl_lcd_rgb>;
+		port@0 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			hlcdc_panel_output: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&panel_input>;
+			};
+		};
+	};
+	hlcdc_pwm: hlcdc-pwm {
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_lcd_pwm>;
+	};
+};
+
