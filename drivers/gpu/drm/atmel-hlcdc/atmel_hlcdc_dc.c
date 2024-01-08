@@ -724,6 +724,8 @@ static const struct drm_mode_config_funcs mode_config_funcs = {
 
 static int atmel_hlcdc_dc_modeset_init(struct drm_device *dev)
 {
+	dev_info(ddev->dev, "modeset_init\n");
+
 	struct atmel_hlcdc_dc *dc = dev->dev_private;
 	int ret;
 
@@ -753,6 +755,8 @@ static int atmel_hlcdc_dc_modeset_init(struct drm_device *dev)
 	dev->mode_config.max_height = dc->desc->max_height;
 	dev->mode_config.funcs = &mode_config_funcs;
 	dev->mode_config.async_page_flip = true;
+
+	dev_info(ddev->dev, "modeset_init_end\n");
 
 	return 0;
 }
